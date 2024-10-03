@@ -1,11 +1,11 @@
 while True:
-    AskForAddiction = input("Do you like drugs? Answer with yes or no: ").strip().lower()
+    AskForAddiction = input("Do you use drugs? Answer with yes or no: ").strip().lower()
 
     if AskForAddiction == "yes":
         print("It's fine, I'm here to help!")
 
         while True:
-            inquiry_for_reason = input("How severe would you say your liking is? Answer on a scale of 1-10: ").strip()
+            inquiry_for_reason = input("How severe would you say your usage is? Answer on a scale of 1-10: ").strip()
 
             if inquiry_for_reason.isdigit():
                 severity = int(inquiry_for_reason)
@@ -31,7 +31,7 @@ while True:
                             elif 31 <= age_user <= 80:
                                 print("Because you are of older age, I suggest you immediately cut down your habits. If needed, call 1-800-662-HELP (4357).")
                             elif age_user <= 17:
-                                print("This can go wrong really quickly, please contact a trusted adult.")
+                                print("This can go wrong really quickly, please contact a trusted adult. Use the above source for more information, or call 988.")
                             else:
                                 print("Please respond with a valid age.")
                             break  # Exit the age loop after response
@@ -46,7 +46,7 @@ while True:
         break  # Exit the addiction loop after valid input handling
 
     elif AskForAddiction == "no":
-        print("You're fine! Keep up the good work!")
+        print("While it's good you haven't tried it, assuming you're being honest, in most cases trying it is inevitable. However, it's important that you never overindulge, and in the case that you do, there are plenty of resources for you!")
         break  # Exit the addiction loop
 
     else:
