@@ -1,33 +1,53 @@
+while True:
+    AskForAddiction = input("Do you like drugs? Answer with yes or no: ").strip().lower()
 
+    if AskForAddiction == "yes":
+        print("It's fine, I'm here to help!")
 
-AskForAddiction = input("Do you like drugs? Answer with yes or no: ").strip()
+        while True:
+            inquiry_for_reason = input("How severe would you say your liking is? Answer on a scale of 1-10: ").strip()
 
-if AskForAddiction.lower() == "yes":
-    print("It's fine, I'm here to help!")
+            if inquiry_for_reason.isdigit():
+                severity = int(inquiry_for_reason)
 
-    inquiry_for_reason = input("How severe would you say your liking is? Answer on a scale of 1-10: ").strip()
-
-    if inquiry_for_reason.isdigit():
-        severity = int(inquiry_for_reason)
-
-        if 1 <= severity <= 5:
-            print("You're doing pretty well, but you it's better for you to bring it down. Want to know ways to?")
-            follow_up = input().strip().lower()
-            if follow_up == "yes":
-                print ("You can go outside to distract yourself, read books, play mind stimulating games, or even learn how to code!")
-            elif follow_up == "no":
-                print("Okay, consult with me for further inquiry.")
+                if 1 <= severity <= 5:
+                    print("You're doing pretty well, but it's better for you to bring it down. Want to know ways to?")
+                    follow_up = input().strip().lower()
+                    if follow_up == "yes":
+                        print("You can go outside to distract yourself, read books, play mind stimulating games, or even learn how to code!")
+                    elif follow_up == "no":
+                        print("Okay, consult with me for further inquiry.")
+                    else:
+                        print("If you would like to know, respond with yes or no")
+                    break  # Exit the severity loop after response
+                elif 6 <= severity <= 10:
+                    print("Reach out to people who can help. I suggest going to https://www.dea.gov/recovery-resources. May I know your age?")
+                    while True:
+                        age_user = input().strip()
+                        if age_user.isdigit():
+                            age_user = int(age_user)
+                            if 18 <= age_user <= 30:
+                                print("Drug abuse at this age can be incredibly detrimental to oneself. There are plenty of other relaxation methods, follow those instead! You have time, don't worry.")
+                            elif 31 <= age_user <= 80:
+                                print("Because you are of older age, I suggest you immediately cut down your habits. If needed, call 1-800-662-HELP (4357).")
+                            elif age_user <= 17:
+                                print("This can go wrong really quickly, please contact a trusted adult.")
+                            else:
+                                print("Please respond with a valid age.")
+                            break  # Exit the age loop after response
+                        else:
+                            print("Please respond with a valid age.")
+                    break  # Exit the severity loop after processing age
+                else:
+                    print("Please respond with a value that is between 1-10.")
             else:
-                print("If you would like to know, respond with yes or no")
-        elif 6 <= severity <= 10:
-            print("Reach out to people who can help. I suggest going to https://www.dea.gov/recovery-resources.")
-        else:
-            print("Please respond with a value that is between 1-10.")
+                print("Please enter a valid number between 1 and 10.")
+
+        break  # Exit the addiction loop after valid input handling
+
+    elif AskForAddiction == "no":
+        print("You're fine! Keep up the good work!")
+        break  # Exit the addiction loop
+
     else:
-        print("Please enter a valid number between 1 and 10.")
-
-elif AskForAddiction.lower() == "no":
-    print("You're fine! Keep up the good work!")
-
-else:
-    print("Bro, follow the directions. Answer with yes or no.")
+        print("Bro, follow the directions. Answer with yes or no.")
